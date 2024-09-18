@@ -1,0 +1,106 @@
+/* src/components/AddMenu.css */
+
+.add-container {
+  max-width: 900px; /* Reduced width */
+
+  margin: 20px auto auto auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px; /* Adjusted margin for narrower form */
+  font-size: 24px; /* Slightly smaller title font size */
+  color: #333;
+}
+
+.menu-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px; /* Adjusted spacing between form groups */
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 6px; /* Adjusted margin for narrower form */
+  font-weight: 600;
+  color: #555;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px; /* Reduced padding for narrower form */
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px; /* Slightly smaller font size */
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px; /* Reduced minimum height for text area */
+}
+
+.file-input {
+  border: none;
+  padding: 0;
+}
+
+.image-preview {
+  margin-top: 10px; /* Adjusted margin for image preview */
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-input {
+  margin-right: 8px; /* Adjusted margin for checkbox */
+}
+
+.checkbox-text {
+  font-size: 14px; /* Slightly smaller font size */
+  color: #333;
+}
+
+.submit-button {
+  padding: 12px 18px; /* Adjusted padding for button */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px; /* Slightly smaller font size */
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.message {
+  margin-top: 15px; /* Adjusted margin for message */
+  font-weight: 600;
+  color: #e74c3c;
+}

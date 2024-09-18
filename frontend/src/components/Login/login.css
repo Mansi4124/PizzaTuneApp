@@ -1,0 +1,65 @@
+.sign-in {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Create a positioning context */
+    overflow: hidden; /* Ensure no overflow from the pseudo-element */
+}
+
+.sign-in::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../assets/pizza33.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(5px); /* Apply blur effect to the background */
+    z-index: 0; /* Position the background behind the main content */
+}
+
+.login {
+    width: 400px;
+    background-color: white;
+    border: 1px solid #dddfe2;
+    box-shadow: 0 1px 1px rgba(76, 76, 250, 0.64), 0 1px 4px rgb(0 10 0 / 34%);
+    border-radius: 8px;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Ensure it is above the blurred background */
+    z-index: 1; /* Bring this container above the blurred background */
+}
+
+.sign-in h1 {
+    font-size: 30px;
+    margin: 20px auto;
+    color: blue;
+}
+
+.sign-in a {
+    color: blue;
+}
+
+.sign-in a:hover {
+    color:orange;
+}
+
+.login form input {
+    border-radius: 20px;
+    border: 2px solid lightgrey;
+    outline: none;
+    color: #1d2129;
+    margin: 2% 0;
+    width: 90%;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.login form input:hover {
+    border: 2px solid blue;
+}

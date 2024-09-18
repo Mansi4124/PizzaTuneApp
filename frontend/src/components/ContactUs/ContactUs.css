@@ -1,0 +1,67 @@
+.contactus {
+ 
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/contact-background.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: auto; /* Enable scrolling if content overflows */
+}
+
+.contactForm {
+  width: 80%;
+  margin: 120px auto;
+  border: 2px solid #6a6161;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  background-color: rgba(222, 218, 218, 0.8);
+}
+
+  
+  fieldset {
+    border: none;
+    padding: 0px;
+    margin: 0;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical; /* Allows vertical resizing */
+  }
+
+  .contactusTitle{
+    text-align:center;
+    color: rgb(17, 17, 17);
+    font-weight: bold;
+    padding-bottom: 20px;
+
+  }
+
+  .contactForm p {
+   color: rgb(0, 0, 0); 
+   font-size: 20px;
+  }
+
+  
+  

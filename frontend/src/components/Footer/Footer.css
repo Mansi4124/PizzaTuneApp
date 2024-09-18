@@ -1,0 +1,95 @@
+
+#f {
+    background-color:  #121315;
+    padding-top: 30px;
+    height: fit-content;
+    min-height: 250px;
+    margin: 0;
+    color: white;
+}
+
+footer .col-lg-3 {
+    padding: 20px;
+    background-color: #121315;
+}
+
+.fa-angle-right,
+.fa-location-dot,
+.fa-phone,
+.fa-envelope {
+    margin-right: 7px;
+}
+
+footer a {
+    text-decoration: none;
+    font-family: "Nunito";
+    color: white;
+    font-size: 14px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    font-family: "Nunito";
+    margin-bottom: 5px;
+    font-size: 17px;
+}
+
+footer h6 {
+    
+    color: #fdfcfa;
+    font-size: large;
+    margin-bottom: 18px;
+}
+
+footer h6::after {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    border-top: 2px solid #fdfcfa;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+footer em {
+    font-style: normal;
+    display: block;
+    font-size: 16px;
+}
+
+.fa-brands {
+    
+    border-radius: 50%;
+    width: 30px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+footer .input-group {
+    border: 1px solid #fdfcfa;
+    border-radius: 2px;
+    background-color: white;
+}
+
+footer .form-control {
+    padding: 10px;
+    width: 100%;
+    border-radius: 0;
+    border: 0;
+}
+
+footer input[type="submit"] {
+    background-color: #0b0b0b;
+    margin: 5px;
+    color: white;
+    padding: 7px;
+    border: 0;
+    width: 35%;
+    font-family: "Nunito";
+    font-size: 14px;
+}

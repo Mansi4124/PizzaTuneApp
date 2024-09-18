@@ -1,0 +1,67 @@
+.franchiseContainer {
+  background-image: url("../../assets/pizza29.png"); /* Background image */
+  background-size: cover; /* Ensure the background image covers the entire container */
+  background-position: center; /* Center the background image */
+  display: flex;
+ 
+  justify-content: center;
+  align-items: center;
+  background-attachment: fixed;
+ 
+}
+
+
+.franchiseBox {
+  width: 90%;
+  border: 2px solid #0f0e0e;
+  border-radius: 8px;
+  padding: 0px;
+  margin-top: 60px; /* Center the box horizontally */
+  background-color: rgba(229, 223, 220, 0.9); /* Transparent white background */
+}
+
+.FranchiseTitle {
+  text-align: center;
+  color: rgb(17, 17, 17);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.franchiseForm {
+  padding: 20px;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 20px 0; /* Adjusted margin */
+}
+

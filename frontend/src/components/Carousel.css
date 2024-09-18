@@ -1,0 +1,201 @@
+
+  
+.background-div{
+    background-image: url("./../assets/pizza20.png");
+    background-size:cover;
+   background-position:center;
+   background-repeat: no-repeat;
+    background-color: rgb(16, 17, 17);
+    height: 100vh;
+   
+}
+.img1 {
+    width: 20%;
+    height: 50%;
+    position: relative;
+    top: 60px;
+    left: 20px;
+    border-radius: 50%;
+    animation: rotateAnimation 6s infinite alternate; /* Alternate the animation direction */
+}
+
+@keyframes rotateAnimation {
+    0% {
+        transform: rotate(0deg); 
+    }
+    50% {
+        transform:  rotate(20deg); 
+    }
+    75%{
+        transform:  rotate(-20deg);
+    }
+    100% {
+        transform:  rotate(0deg);
+    }
+}
+
+
+.t h2{
+    
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 40px;
+    
+    animation: title 6s infinite alternate;
+    
+    
+}
+
+ .img2{
+    
+    width:500px;
+    height: 300px;
+    border:2px solid black;
+    border-radius: 13px;
+    box-shadow: 4px 7px 7px 0px #00000042;
+    margin: 90px;
+    transition: 400ms;
+    
+    
+
+}
+
+.carousel-21{
+    padding-left: 60px;
+}  
+
+.carousel-22{
+    padding-right: 180px;
+}  
+@keyframes animation1 {
+    0% {
+        opacity: 0.8;
+       
+    }
+    100% {
+        opacity:1 ;
+        width: 35%;
+    }
+}
+.img3{
+    width:30%;
+    position: relative;
+    left: 400px;
+    top:200px;
+    border-radius: 20px;
+  
+    
+
+
+}
+@keyframes animation2 {
+    0% {
+        opacity: 0.8;
+       
+    }
+    
+    100% {
+        opacity:1 ;
+        width:35%
+    }
+}
+
+
+.t1{
+    background-color:rgb(59, 136, 56) ;
+    border-radius: 10px;
+    width:30%;
+    height: 15%;
+    position: relative;
+    top:200px;
+    left: 120px;
+}
+
+.t1:hover{
+    background-color: rgb(139, 163, 149);
+}
+
+.carousel-h2 {
+    position: relative;
+    top:150px;
+    
+    color:rgb(245, 244, 243);
+    font-weight: bold;
+    font-style: italic;
+   
+}
+
+
+
+.t2{
+    text-align: center;
+    width:100%;
+    height: 100%;
+    color:aliceblue;
+    font-size: 100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+   
+    
+}
+.offer-h3{
+    
+    color:rgb(59, 136, 56);
+    
+    position: relative;
+    top:100px;
+    left: 70px;
+    font-weight: bolder;
+    
+}
+.offer{
+    display: flex;
+
+}
+.t{
+    background-color:rgb(60, 70, 69);
+/*   
+   background-color: rgb(118, 127, 134); */
+   backdrop-filter: blur(50px);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   margin-top:70px;
+   height: 500px;
+   opacity: 0.9;
+   
+}
+.t4{
+    background-color:rgb(60, 70, 69);
+    backdrop-filter: blur(20px);
+    margin-top:70px;
+    height: 500px;
+    opacity: 0.9;
+}
+
+.t3{
+    background-color:rgb(60, 70, 69);
+   
+   height: 500px;
+   background-image: url("");
+   background-position: center;
+   background-size: cover;
+   background-repeat:no-repeat;
+   margin-top: 70px;
+   opacity: 0.9;
+}
+
+.flex-div1{
+    color:aliceblue;
+    font-size:100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    padding-left: 250px;
+    padding-top: 90px;
+
+}
+
+.flex-div2{
+    padding-left:320px;
+    padding-top: 50px;
+}

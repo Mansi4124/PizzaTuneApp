@@ -1,0 +1,128 @@
+/* src/components/Order/Order.css */
+.order-title{
+    font-size: 25px;
+    color: rgb(51, 49, 49);
+    text-align: center;
+    margin-top: 100px;
+}
+.order-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+   
+}
+.nav-order{
+    background-color: black;
+}
+.nav {
+    background-color: black;
+}
+
+.order-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-user {
+    margin-bottom: 20px;
+   
+}
+
+.order-user h3 {
+    font-size: 1.2em;
+   
+    text-align: left;
+    color: #911414;
+}
+
+.order-items {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.order-item-header, .order-item {
+    display: flex;
+    justify-content: space-between;
+    text-align: center; /* Center align text in each column */
+    margin-bottom: 20px;
+}
+
+.order-item-header div, .order-item div {
+    flex: 1; /* Each item detail takes up equal space */
+}
+
+.order-item-header {
+    font-weight: bold; /* Bold headers */
+    background-color: #e0e0e0; /* Light gray background for headers */
+    border-bottom: 2px solid #ddd; /* Border under headers */
+    padding: 10px 0; /* Padding for better spacing */
+}
+
+.order-item-name {
+    flex: 2; /* Name column takes more space */
+}
+
+.order-item-quantity {
+    flex: 1; /* Quantity column takes less space */
+}
+
+.order-item-price {
+    flex: 1; /* Price column takes less space */
+}
+
+.order-item-total {
+    flex: 1; /* Total column takes less space */
+}
+
+.order-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-total {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    border-top: 1px solid #ddd;
+    margin-top: 20px; /* Space above total */
+}
+
+.place-order-button {
+    background-color: #074d1b; /* Green background color */
+    color: white; /* White text for visibility */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Padding for better appearance */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for interactive element */
+    font-size: 16px; /* Font size for readability */
+    margin-top: 20px; /* Space above button */
+}
+
+.place-order-button:hover {
+    background-color: #056d1a; /* Slightly darker green on hover */
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.order-page-header {
+    background-color: black;
+    height: 30px;
+}
+
+.nav {
+    background-color: black;
+}
