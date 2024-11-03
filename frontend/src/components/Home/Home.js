@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DivFlex from "../Desc/DivFlex";
-import Offerdiv from "../Offer/Offerdiv";
+
 import RowCol from "../PhotoGallary/RowCol";
 import Test from "../Testimonial/TestimonialComponent";
 import CarouselNav from "../Carousel/CarouselNav";
