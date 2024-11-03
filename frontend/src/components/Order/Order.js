@@ -11,7 +11,8 @@ const Order = () => {
   const navigate = useNavigate(); // useNavigate hook to programmatically navigate
   const { cartItems, totalAmount } = location.state || { cartItems: [], totalAmount: 0 }; // Retrieve order details from location state
 
-  const [username, setUsername] = useState('');
+  const [fname, setFname] = useState(''); // Store user's first name
+  const [lname, setLname] = useState(''); // Store user's last name
   const [email, setEmail] = useState(''); // Store user's email
   const [error, setError] = useState(null);
   const [isFormDirty, setIsFormDirty] = useState(false); // Track if the form is "dirty" (cart has items)
@@ -33,10 +34,12 @@ const Order = () => {
       if (response.status === 200) {
         const user = response.data.user;
         if (user) {
-          setUsername(`${user.fname} ${user.lname}`);
+          setFname(user.fname); // Set first name
+          setLname(user.lname); // Set last name
           setEmail(user.email); // Save email to state
         } else {
-          setUsername('No name available');
+          setFname('No name');
+          setLname('available');
           setEmail(''); // Clear email if no user found
         }
       } else {
@@ -91,17 +94,30 @@ const Order = () => {
     }
   }, [cartItems]);
 
-  // Function to send the bill
+  // Function to send the bill and save the order to the database
   const sendBill = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/send_bill/', {
+      // Get the current date
+      const currentDate = new Date().toISOString();
+
+      // Send bill email
+      const response1 = await axios.post('http://localhost:8000/send_bill/', {
         email: email,
         cartItems: cartItems,
         totalAmount: totalAmount,
       });
-  
-      if (response.status === 200) {
-        alert('Bill sent successfully!');
+
+      // Save order in database
+      const response = await axios.post('http://localhost:8000/order/save_order/', {
+        name: `${fname} ${lname}`,  // Use the fname and lname from state
+        email: email,               // Customer's email
+        cartItems: cartItems,       // Cart items array
+        totalAmount: totalAmount,   // Total amount of the order
+        orderDate: currentDate      // Send the current date
+      });
+
+      if (response.status === 200 && response1.status === 200) {
+        alert('Bill sent and order saved successfully!');
       } else {
         alert('Failed to send the bill.');
       }
@@ -110,7 +126,6 @@ const Order = () => {
       alert('An error occurred while sending the bill.');
     }
   };
-  
 
   return (
     <>
@@ -119,7 +134,7 @@ const Order = () => {
       <div className="order-page">
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <div className="order-user">
-          <h3>Name: {username || 'Loading...'}</h3>
+          <h3>Name: {fname ? `${fname} ${lname}` : 'Loading...'}</h3>
         </div>
         <div className="order-summary">
           <div className="order-items">

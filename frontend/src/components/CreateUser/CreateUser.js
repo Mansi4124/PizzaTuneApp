@@ -11,7 +11,7 @@ function CreateUser() {
     email: "",
     password: "",
     cpassword: "",
-    role: "customer" // Default role
+    role: "admin" // Default role
   });
 
   const changeHandler = (e) => {
@@ -44,7 +44,7 @@ function CreateUser() {
 
         // Redirect based on the role
         if (user.role === "admin") {
-          navigate('/admin-dashboard');
+          navigate('/admin-home');
         } else {
           navigate('/');
         }

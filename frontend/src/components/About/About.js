@@ -12,7 +12,7 @@ export default function About() {
         <Navbar />
       </div>
       <div className="about-header">
-      <h1>Get to Know Us</h1>
+     
       </div>
       <div className="about-background">
         <div className="heading">
@@ -24,7 +24,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="container">
+        <div className="ab-container">
           <section className="about">
             <div className="about-image">
               <img src={image} alt="Pizzeria Logo" />

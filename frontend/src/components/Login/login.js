@@ -32,16 +32,23 @@ function LoginForm() {
         const expiryDate = new Date();
         expiryDate.setDate(expiryDate.getDate() + 30);
 
+                // Set userId cookie
         document.cookie = `userId=${userId}; expires=${expiryDate.toUTCString()}; path=/; secure; SameSite=Lax`;
 
-        // Redirect based on user role
-        if (role === "admin") {
-          navigate('/admin-dashboard'); // Admin dashboard route
-        } else if (role === "customer") {
-          navigate('/'); // Customer dashboard route
-        } else {
-          navigate('/'); // Default redirection if role is unknown
-        }
+        // Set role cookie
+        document.cookie = `role=${role}; expires=${expiryDate.toUTCString()}; path=/; secure; SameSite=Lax`;
+
+
+        setTimeout(() => {
+          // Redirect based on user role
+          if (role === "admin") {
+            navigate('/admin-home'); // Admin dashboard route
+          } else if (role === "customer") {
+            navigate('/'); // Customer dashboard route
+          } else {
+            navigate('/'); // Default redirection if role is unknown
+          }
+        }, 3000); // 1000 ms = 1 second
       } else {
         setFormErrors(data);
       }

@@ -1,51 +1,53 @@
-import uuid
+import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from pymongo import MongoClient
-import json
+from bson import ObjectId
 
+# Connect to your MongoDB database
 client = MongoClient('mongodb://localhost:27017/')
-db = client['myproject']
-menu_collection = db['order']
+db = client['myproject']  # Replace with your database name
+orders_collection = db['orders']  # Collection for storing orders
 
 @csrf_exempt
-def create_order(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        user_id = data.get("user_id")
-        items = data.get("items")
-        total_amount = data.get("total_amount")
+def save_order(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            # Extract order details from the request
+            email = data.get('email')
+            customer_name = data.get('name')
+            cart_items = data.get('cartItems')
+            total_amount = data.get('totalAmount')
+            current_date = data.get('orderDate')
+            
+            # Create an order document
+            order = {
+                'customer': customer_name,
+                'email': email,
+                'cartItems': cart_items,
+                'totalAmount': total_amount,
+                'date': current_date
+            }
 
-        # Insert the new order into the orders collection
-        order_id = str(uuid.uuid4())
-        order_data = {
-            "_id": order_id,
-            "user_id": user_id,
-            "items": items,
-            "total_amount": total_amount,
-            "created_at": datetime.datetime.now()
-        }
-        menu_collection.insert_one(order_data)
+            # Insert the order into the database
+            orders_collection.insert_one(order)
 
-        return JsonResponse({"message": "Order created successfully", "order_id": order_id}, status=201)
-    
-    return JsonResponse({"message": "Invalid request method"}, status=400)
+            return JsonResponse({'message': 'Order saved successfully!'}, status=200)
+        except Exception as e:
+            return JsonResponse({'message': str(e)}, status=500)
 
+    return JsonResponse({'message': 'Invalid request method'}, status=400)
 
-@csrf_exempt
 def get_orders(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        user_id = data.get("user_id")
+    try:
+        # Fetch all orders from MongoDB
+        orders = list(orders_collection.find())
 
-        # Fetch orders for the user
-        orders = menu_collection.find({"user_id": user_id})
-        orders_list = list(orders)
+        # Convert the ObjectId to a string for JSON serialization
+        for order in orders:
+            order['_id'] = str(order['_id'])
 
-        # Convert orders to list of dicts
-        for order in orders_list:
-            order["_id"] = str(order["_id"])  # Convert ObjectId to string
-
-        return JsonResponse({"orders": orders_list})
-    
-    return JsonResponse({"message": "Invalid request method"}, status=400)
+        return JsonResponse({'orders': orders}, status=200)
+    except Exception as e:
+        return JsonResponse({'message': str(e)}, status=500)

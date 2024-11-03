@@ -1,7 +1,7 @@
 
 #f {
     background-color:  #121315;
-    padding-top: 30px;
+    padding-top: 10px;
     height: fit-content;
     min-height: 250px;
     margin: 0;
@@ -12,7 +12,9 @@ footer .col-lg-3 {
     padding: 20px;
     background-color: #121315;
 }
-
+.footer-div a{
+    text-align: left;
+}
 .fa-angle-right,
 .fa-location-dot,
 .fa-phone,
@@ -25,6 +27,7 @@ footer a {
     font-family: "Nunito";
     color: white;
     font-size: 14px;
+    margin: 0 !important;
 }
 
 footer a:hover {
@@ -59,17 +62,20 @@ footer em {
     font-size: 16px;
 }
 
-.fa-brands {
-    
-    border-radius: 50%;
+.social-icons {
+    display: flex; /* Align child elements in a row */
+    justify-content: left; /* Center align the icons horizontally */
+    align-items: left; /* Center align the icons vertically */
+    padding-top: 20px;
+  }
+  
+  .fa-brands {
+    border-radius: 30%;
     width: 30px;
     height: 40px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
+    
+  }
+  
 footer .input-group {
     border: 1px solid #fdfcfa;
     border-radius: 2px;

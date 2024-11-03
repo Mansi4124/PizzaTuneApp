@@ -1,12 +1,51 @@
-import React from "react";
+import { React, useState } from "react";
 import "./FranchiseEnquiry.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import axios from 'axios';
 
 export default function FranchiseEnquiry() {
+  const [formData, setFormData] = useState({
+    customerName: "",
+    customerEmail: "",
+    message: "",
+    adminReply: ""
+  });
+  const [formErrors, setFormErrors] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [showReplyBox, setShowReplyBox] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:8000/contact/submit-frenchise-inquiry/", formData);
+      const data = response.data;
+      console.log(data)
+      if (data.success) {
+        setSuccessMessage(data.message);
+        setFormData({ customerName: "", customerEmail: "", message: "" });
+        setFormErrors(null);
+        setShowReplyBox(true);
+      } else {
+        setFormErrors(data.message);
+        setSuccessMessage(null);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setFormErrors("An error occurred. Please try again.");
+      setSuccessMessage(null);
+    }
+  };
+
   return (
     <>
-       <Navbar />
+      <Navbar />
       <div className="franchiseContainer">
         <div className="franchiseBox">
           <h1 className="FranchiseTitle">Franchise Enquiry</h1>
@@ -46,46 +85,40 @@ export default function FranchiseEnquiry() {
                   Our streamlined procurement system facilitates the acquisition
                   of essential ingredients at competitive rates. Coupled with
                   lower operational costs, this translates into an optimal
-                  return on your investment.”
+                  return on your investment.
                 </div>
               </div>
             </div>
 
-            <form className="franchiseForm">
+            <form className="franchiseForm" onSubmit={handleSubmit} method="post">
               <fieldset>
                 <div className="form-group">
                   <input
                     type="text"
-                    id="username"
-                    name="username"
-                    placeholder="Enter Your Name"
+                    name="customerName"
                     required
+                    placeholder="Enter Your Name"
+                    value={formData.customerName}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="form-group">
                   <input
                     type="email"
-                    id="email"
-                    name="email"
+                    name="customerEmail"
                     placeholder="Enter Your Email"
                     required
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Enter Your Phone"
-                    required
+                    value={formData.customerEmail}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="form-group">
                   <textarea
-                    id="message"
                     name="message"
                     rows="4"
                     placeholder="Enter Your Message"
+                    value={formData.message}
+                    onChange={handleChange}
                   ></textarea>
                 </div>
                 <button type="submit">Submit</button>
@@ -94,7 +127,7 @@ export default function FranchiseEnquiry() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

@@ -1,5 +1,3 @@
-// src/components/AdminMenu.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AdminMenu.css';
@@ -8,6 +6,11 @@ const AdminMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [editMode, setEditMode] = useState(false);
+  const [refetchMenu, setRefetchMenu] = useState(false);
+
+  const handleRefetch = () => {
+    setRefetchMenu(!refetchMenu);
+  };
 
   useEffect(() => {
     const fetchMenuItems = async () => {
@@ -20,22 +23,16 @@ const AdminMenu = () => {
     };
 
     fetchMenuItems();
-  }, []);
+  }, [refetchMenu]);
 
   const handleEdit = (item) => {
     setSelectedItem(item);
     setEditMode(true);
   };
 
-//   const handleImageChange = (e) => {
-//     setImage(e.target.files[0]);
-// };
-
-
   const handleDelete = async (itemId) => {
-   
     try {
-      await axios.delete(`http://localhost:8000/menu/${itemId}/`);
+      await axios.delete(`http://localhost:8000/menu/${itemId}/delete/`);
       setMenuItems(menuItems.filter(item => item._id !== itemId));
     } catch (error) {
       console.error('There was an error deleting the menu item!', error);
@@ -43,13 +40,13 @@ const AdminMenu = () => {
   };
 
   return (
-    <div className="container">
+    <div className="admin-menu-container">
       <h2>Manage Menu Items</h2>
       {editMode ? (
-        <EditMenuForm item={selectedItem} setEditMode={setEditMode} />
+        <EditMenuForm item={selectedItem} setEditMode={setEditMode} handleRefetch={handleRefetch} />
       ) : (
         <div>
-          <table className="menu-table">
+          <table className="admin-menu-table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -71,8 +68,8 @@ const AdminMenu = () => {
                   <td><img src={item.image_url} alt={item.name} width="50" /></td>
                   <td>{item.isVeg ? 'Yes' : 'No'}</td>
                   <td>
-                    <button onClick={() => handleEdit(item)}>Edit</button>
-                    <button onClick={() => handleDelete(item._id)}>Delete</button>
+                    <span className="admin-menu-icon" onClick={() => handleEdit(item)}>✏️</span>
+                    <span className="admin-menu-icon" onClick={() => handleDelete(item._id)}>🗑️</span>
                   </td>
                 </tr>
               ))}
@@ -85,13 +82,14 @@ const AdminMenu = () => {
 };
 
 // EditMenuForm component will handle the edit functionality
-const EditMenuForm = ({ item, setEditMode }) => {
+const EditMenuForm = ({ item, setEditMode, handleRefetch }) => {
   const [name, setName] = useState(item.name);
   const [description, setDescription] = useState(item.description);
   const [price, setPrice] = useState(item.price);
   const [category, setCategory] = useState(item.category);
   const [image, setImage] = useState(null);
   const [isVeg, setIsVeg] = useState(item.isVeg);
+  const [menuImage, setMenuImage] = useState(item.image_url);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -103,20 +101,20 @@ const EditMenuForm = ({ item, setEditMode }) => {
     formData.append('isVeg', isVeg);
     
     if (image) formData.append('image', image);
-    console.log(typeof item._id); // This will print the type of item._id
 
     try {
-        await axios.put(`http://localhost:8000/menu/${item._id}/update/`, formData, {
-            headers: { 'Content-Type': 'multipart/form-data' },
-        });
-        setEditMode(false);
+      await axios.post(`http://localhost:8000/menu/${item._id}/update/`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      setEditMode(false);
+      handleRefetch();
     } catch (error) {
-        console.error('There was an error updating the menu item!', error);
+      console.error('There was an error updating the menu item!', error);
     }
-};
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="edit-menu-form">
+    <form onSubmit={handleSubmit} className="admin-menu-edit-form">
       <h3>Edit Menu Item</h3>
       <div className="form-group">
         <label htmlFor="name">Name</label>
@@ -158,11 +156,13 @@ const EditMenuForm = ({ item, setEditMode }) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="image">Image</label>
+        <label htmlFor="image">
+          Image
+          <a href={menuImage} target="_blank" rel="noopener noreferrer"> View Image</a>
+        </label>
         <input
           type="file"
           id="image"
-          
           onChange={(e) => setImage(e.target.files[0])}
         />
       </div>
@@ -176,7 +176,7 @@ const EditMenuForm = ({ item, setEditMode }) => {
         />
       </div>
       <button type="submit">Update Item</button>
-      <button type="button" onClick={() => setEditMode(false)}>Cancel</button>
+      <button type="button" onClick={() => setEditMode(false)} className="cancel-button">Cancel</button>
     </form>
   );
 };

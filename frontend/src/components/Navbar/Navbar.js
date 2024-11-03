@@ -11,11 +11,14 @@ function deleteCookie(name) {
 const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [userRole,setUserRole] = useState(null);
 
   useEffect(() => {
     // Function to check if the user is logged in
     const checkLoginStatus = () => {
       const userId = getCookie('userId'); // Assuming userId cookie indicates login
+      const role = getCookie('role') || null;
+      setUserRole(role);
       if (userId) {
         setLoggedIn(true);
       } else {
@@ -45,6 +48,7 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     deleteCookie("userId");
+    deleteCookie("role");
     setLoggedIn(false); // Update state to reflect logged-out status
     window.location.reload(); // Reload page to update UI
   };
@@ -128,7 +132,14 @@ const Navbar = () => {
                     />
                     {menuOpen && (
                       <div className="profile-menu">
-                        <a href="/profile">My Profile</a>
+                        {/* <a href="/profile">My Profile</a> */}
+                        {
+                          userRole == 'admin' && (
+                            <>
+                            <a href="/admin-home">Admin Panel</a>
+                            </>
+                          )
+                        }
                         <a href="/" onClick={handleSignOut}>Sign Out</a>
                       </div>
                     )}

@@ -1,0 +1,56 @@
+/* AboutDiv.css */
+
+.about-container {
+    padding: 0 15px;
+  }
+  
+  .card-about {
+    border: none;
+   
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: #c9cdc9 !important;
+  }
+  
+  .custom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .custom-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .custom-title {
+    color: #333;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .custom-text {
+    color: #555;
+    font-size: 20px;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .custom-btn {
+    background-color: #ff6600;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-btn:hover {
+    background-color: #e55a00;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  

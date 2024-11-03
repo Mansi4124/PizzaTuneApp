@@ -65,9 +65,9 @@ export default function CarouselNav() {
 
                 <button
                   type="button"
-                  className="btn  btn-outline-light shadow text-capitalize"
+                  className="btn  btn-outline-light shadow"
                 >
-                  <Link to="/menu" className="btn-link " style={{ textDecoration: 'none' , color:'orange',fontWeight:'bolder'}}>
+                  <Link to="/menu" className="btn-link " style={{ textDecoration: 'none' , color:'orange',fontWeight:'bolder',margin: '10px'}}>
                     <div className="discover">Discover Menu</div>
                   </Link>
                 </button>
@@ -82,9 +82,9 @@ export default function CarouselNav() {
                 </p>
                 <button
                   type="button"
-                  className="btn btn-dark btn-outline-light text-capitalize  "
+                  className="btn btn-dark btn-outline-light text-capitalize bu "
                 >
-                 <Link to="/frenchiseInquiry" className="btn-link " style={{ textDecoration: 'none' , color:'orange',fontWeight:'bolder'}}>
+                 <Link to="/frenchiseInquiry" className="btn-link " style={{ textDecoration: 'none' , color:'orange',fontWeight:'bolder',margin: '10px'}}>
                   <div className="discover1">Franchise Enquiry</div>
                   </Link>
                 </button>

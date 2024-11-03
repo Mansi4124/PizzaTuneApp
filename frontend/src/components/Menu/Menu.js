@@ -179,12 +179,12 @@ const Menu = () => {
                 >
                   Garlic Bread
                 </div>
-                <div
+                {/* <div
                   className="menu-dist-title"
                   onClick={() => scrollToSection(packOf4Ref)}
                 >
                   Pack of 4
-                </div>
+                </div> */}
                 <div
                   className="menu-dist-title"
                   onClick={() => scrollToSection(bevaragesRef)}
@@ -243,7 +243,7 @@ const Menu = () => {
                   )}
                 </div>
               </div>
-              <div ref={packOf4Ref}>
+              {/* <div ref={packOf4Ref}>
                 <div className="submenu-title">PACK OF 4 PIZZA</div>
                 <div className="menu-items-container">
                   {Array.isArray(menuData.packOf4) &&
@@ -260,7 +260,7 @@ const Menu = () => {
                     <p>No pack of 4 items available</p>
                   )}
                 </div>
-              </div>
+              </div> */}
               <div ref={bevaragesRef}>
                 <div className="submenu-title">BEVERAGES</div>
                 <div className="menu-items-container">

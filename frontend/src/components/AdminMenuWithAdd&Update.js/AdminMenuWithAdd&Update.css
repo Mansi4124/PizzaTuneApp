@@ -1,0 +1,41 @@
+/* src/components/AdminMenuWithAddAndUpdate.css */
+.container-admin{
+    
+    background-color:#f1f1f1;
+    min-height: 100vh;
+}
+.admin-menu-card {
+    border-radius: 8px;
+    overflow: hidden;
+   
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top:70px;
+}
+
+.admin-menu-card-img {
+   
+  height: 350px;
+  
+   margin: auto;
+  width: 50% !important;
+    
+}
+
+.admin-menu-card-body {
+    text-align: center;
+}
+
+.admin-menu-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.admin-menu-card-text {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+.admin-menu-button {
+    margin-top: 1rem;
+}

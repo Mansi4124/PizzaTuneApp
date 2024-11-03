@@ -1,41 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./RowCol.css";
 
-import img1 from "../../assets/pizza-popular1.webp";
-import img2 from "../../assets/pizza_offer4.jpg";
-import img3 from "../../assets/pizza-popular3.jpg";
-import img4 from "../../assets/pizza15.jpg";
-export default function RowCol() {
-  return (
-    <>
-      <div className="popular">
-        <h4 className="popular-title">TOP FAVORITES</h4>
+export default function RowCol({ topSellingItems }) {
+  const [items, setItems] = useState([]);
+  const [topItems, setTopItems] = useState([]);
 
-        <div className="row popular-items1">
-          <div className="col-lg-2"></div>
-          <div className="col-lg-4 image-container">
-            <img src={img1} className="image1" alt="Pizza" />
-            <div className="image-text">Fresh Delight</div>{" "}
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/menu/`);
+        const allItems = response.data.items || []; // Ensure it defaults to an empty array
+        
+        // Filter items based on topSellingItems names
+        const filteredTopItems = allItems.filter(item => 
+          topSellingItems.some(topItem => topItem.name === item.name)
+        );
+        
+        setTopItems(filteredTopItems);
+      } catch (error) {
+        console.error("Error fetching menu items:", error);
+      }
+    };
+
+    if (topSellingItems && topSellingItems.length > 0) {
+      fetchItems();
+    }
+  }, [topSellingItems]);
+
+  if (!topItems || topItems.length === 0) {
+    return <p>No top-selling items available at the moment.</p>; // Fallback for no data
+  }
+
+  return (
+    <div className="popular">
+      <h4 className="popular-title">TOP SELLING</h4>
+
+      <div className="row popular-items">
+        {topItems.map((item, index) => (
+          <div key={index} className="col-lg-3 image-container"> {/* Adjusting for four items */}
+            <img
+              src={item.image_url}
+              className="image1"
+              alt={item.name}
+            />
+            <div className="image-text">{item.name}</div>
           </div>
-          <div className="col-lg-4 image-container">
-            <img src={img2} className="image1" />
-            <div className="image-text">Peri Peri</div>{" "}
-          </div>
-          <div className="col-lg-2"></div>
-        </div>
-        <div className="row popular-items2">
-          <div className="col-lg-2"></div>
-          <div className="col-lg-4 image-container">
-            <img src={img3} alt="Pizza" className="image1" />
-            <div className="image-text">9-cheesy</div>{" "}
-          </div>
-          <div className="col-lg-4 image-container">
-            <img src={img4} alt="Pizza" className="image1" />
-            <div className="image-text">Indian Bite</div>{" "}
-          </div>
-          <div className="col-lg-2"></div>
-        </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }

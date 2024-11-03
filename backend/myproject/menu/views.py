@@ -64,8 +64,17 @@ def get_menu_item(request, item_id):
 
 @csrf_exempt
 def update_menu_item(request, item_id):
-    if request.method == "PUT":
-        data = json.loads(request.body)
+    print('item_id',item_id,request.method)
+    if request.method == "POST":
+        print("entered in put")
+        #data = json.loads(request.body)
+        data = {
+            'name': request.POST.get('name'),
+            'description': request.POST.get('description'),
+            'price': request.POST.get('price'),
+            'category': request.POST.get('category'),
+            'isVeg': request.POST.get('isVeg') == 'true',
+        }
         print(data)
         update_data = {
             'name': data.get('name'),
@@ -86,6 +95,7 @@ def update_menu_item(request, item_id):
 
 @csrf_exempt
 def delete_menu_item(request, item_id):
+    print("item_id",item_id)
     if request.method == "DELETE":
         menu_collection.delete_one({"_id": ObjectId(item_id)})
         return JsonResponse({"message": "Menu item deleted successfully"}, status=200)

@@ -1,107 +1,54 @@
-.popular{
-  background-color: #afc4af;
-  height: fit-content;
-  padding-bottom: 100px;
-}
-
-.image1{
-  width:90%;
-  height: 300px;
-  border-radius: 10px;
- 
-}
-
-.popular-items1{
-  padding-top: 40px;
-}
-.popular-items2{
-  padding-top: 40px;
-}
-
-
-
-.image-container {
-  position: relative;
-  margin: 0 10px;
-}
-
-.image-text {
-  position: absolute;
-  top: 0;
-  width: 86%;
-  height: 100%;
-  margin-left: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  background-color: rgba(0, 0, 0, 0.7); 
-  color: white; 
-  border-radius: 10px; 
-  opacity: 0; 
-  transition: opacity 0.3s ease; 
+.popular {
+  margin: 50px 0; /* Adjust margin as needed */
+  background-color: #f8f9fa; /* Light background color */
+  padding: 20px; /* Add padding around the section */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .popular-title {
   text-align: center;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding-top: 40px;
-  animation: pulse 3s 1 forwards; 
+  margin-bottom: 30px; /* Space between title and items */
+  font-size: 24px; /* Larger font size for the title */
+  color: #333; /* Darker text color */
 }
 
-@keyframes pulse {
-  from {
-    transform: scale(1);
-   
-  }
-  to {
-    transform: scale(1.6); 
-  }
+.popular-items {
+  display: flex; /* Use flexbox to align items in a row */
+  justify-content: space-around; /* Space items evenly */
+  flex-wrap: wrap; /* Allow wrapping to new lines if necessary */
 }
 
-
-
-
-.image-container:hover .image-text {
-  opacity: 1; 
+.image-container {
+  flex: 0 0 23%; /* Set each item to take up about 23% of the row */
+  text-align: center; /* Center the text under the images */
+ 
+ 
+ 
+  overflow: hidden; /* Hide overflow */
+ 
+  
 }
 
+.image-container:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
 
-@media only screen and (max-width: 992px){
-  .image1{
-    padding-top: 20px !important;
-    width: 300px;
-    height: 200px;
-    border-radius: 0px;
-  }
-  .image-container {
-   
-    margin: auto;
-  }
-  
-  .image-text {
-   
-    width: 76%;
-    height: 90%;
-    margin-top: 20px;
-    margin-left: 35px;
-    display: flex;
-    border-radius: 0px;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-  }
+.image1 {
+  width: 70%; /* Ensure images fill the container */
+  height: auto; /* Maintain aspect ratio */
+ 
+  transition: transform 0.3s; /* Smooth scaling effect on hover */
+}
 
-  .popular-items1{
-    padding-top: 10px;
-  }
-  .popular-items2{
-    padding-top: 0px;
-  }
-  
-  .image-container:hover .image-text {
-    opacity: 1; 
-  
-  }
+.image1:hover {
+  transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+
+.image-text {
+  margin-top: 8px; /* Space between image and text */
+  font-size: 16px; /* Font size for item names */
+  color: #555; /* Text color */
+  font-weight: bold; /* Bold text */
 }

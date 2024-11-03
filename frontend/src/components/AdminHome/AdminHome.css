@@ -1,0 +1,29 @@
+.admin-home {
+  padding: 20px;
+}
+
+.dashboard {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.charts-container {
+  margin-top: 75px;
+  display: flex;
+  flex-direction: column; /* Stack charts vertically */
+  align-items: center; /* Center align the charts */
+  gap: 20px; /* Space between charts */
+}
+
+.chart-item {
+  width: 100%; /* Optional: make each chart full width */
+  max-width: 700px; /* Optional: limit max width */
+  text-align: center;
+}
+
+.chart-title {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}

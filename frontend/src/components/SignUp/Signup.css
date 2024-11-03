@@ -76,7 +76,7 @@
 }
 
 .button_common:hover {
-    background-color: var(--btn);
+    background-color:blue;
 }
 
 .error {

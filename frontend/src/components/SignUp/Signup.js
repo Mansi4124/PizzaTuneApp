@@ -30,15 +30,17 @@ function Sign_up() {
 
       if (data.success) {
         const userId = data.user_id;
+        const role = data.role;
+        console.log("role",role);
 
         const expiryDate = new Date();
         expiryDate.setDate(expiryDate.getDate() + 30);
 
-        document.cookie = `userId=${userId}; expires=${expiryDate.toUTCString()}; path=/; secure; SameSite=Lax`;
-
+        document.cookie = `userId=${userId};role=${role} expires=${expiryDate.toUTCString()}; path=/; secure; SameSite=Lax`;
+        document.cookie = `role=${role}; expires=${expiryDate.toUTCString()}; path=/; secure; SameSite=Lax`;
         // Redirect based on the role
         if (user.role === "admin") {
-          navigate('/admin-dashboard');
+          navigate('/admin-home');
         } else if (user.role === "customer") {
           navigate('/');
         } else {
@@ -104,7 +106,7 @@ function Sign_up() {
           {/* Remove the role selection dropdown */}
           <p className="error">{formErrors.role}</p>
           <button
-            className="button_common"
+            className="button_c"
             onClick={signupHandler}
             value="Sign up"
           >Sign up</button>

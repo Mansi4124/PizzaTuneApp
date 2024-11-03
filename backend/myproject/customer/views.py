@@ -118,6 +118,7 @@ def send_email_with_bill(to_email, subject, message):
     )
     email.send()
 
+
 from django.http import JsonResponse
 from django.core.mail import EmailMessage
 from django.views.decorators.csrf import csrf_exempt

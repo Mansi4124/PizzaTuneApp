@@ -72,7 +72,7 @@ const Navbar = () => {
             <ul className="navbar-nav me-auto d-flex justify-content-end w-100">
               <li className="nav-item">
                 <a
-                  href="/"
+                  href="/admin-home"
                   className="nav-link text-light text-center active"
                   aria-current="page"
                 >
@@ -80,31 +80,20 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/add-menu" className="nav-link text-light text-center">
-                  Add Item
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="/admin-menu" className="nav-link text-light text-center">
+                <a href="/admin-menu-add-update" className="nav-link text-light text-center">
                   Menu
                 </a>
               </li>
+              
               <li className="nav-item">
                 <a
                   href="/admincontact"
                   className="nav-link text-light text-center"
                 >
-                  Customer Inquiries
+                  Inquiries
                 </a>
               </li>
-              <li className="nav-item">
-                <a
-                  href="/frenchiseInquiry"
-                  className="nav-link text-light text-center"
-                >
-                  Franchise Enquiries
-                </a>
-              </li>
+              
               <li>
               <li className="nav-item">
                 <a

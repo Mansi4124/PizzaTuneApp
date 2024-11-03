@@ -1,0 +1,15 @@
+.pie-chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .tooltip {
+    position: absolute;
+    text-align:left;
+    width: 100px;
+    height: auto;
+    pointer-events: none;
+  }
+  

@@ -22,6 +22,8 @@
     margin:0px auto;
 }
 
+
+
 @media only screen and (max-width: 992px) {
     #carouselExampleAutoplaying {
         height: auto;
