@@ -50,11 +50,8 @@ DEFAULT_FROM_EMAIL = 'mansipatel9898.mp@gmail.com'
 # # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-CORS_ALLOWED_ORIGINS = [
-   
-    'http://localhost:3000',  # React frontend URL
-     'http://pizza-tune-app-g3j9.vercel.app',
-]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Application definition
