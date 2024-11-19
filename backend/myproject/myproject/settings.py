@@ -14,8 +14,15 @@ import cloudinary.uploader
 import cloudinary.api
 from pathlib import Path
 import os 
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+from decouple import config
+
+SECRET_KEY = config("SECRET_KEY")
+DEBUG = config("DEBUG", default=False, cast=bool)
+MONGO_DB_NAME = config("MONGO_DB_NAME")
+MONGO_DB_URI = config("MONGO_DB_URI")
 
 # customer/mongodb_client.py
 
@@ -25,7 +32,7 @@ from pymongo import MongoClient
 # settings.py
 from pymongo import MongoClient
 
-MONGO_CLIENT = MongoClient('mongodb://localhost:27017/')  # Update with your MongoDB URI
+MONGO_CLIENT = MongoClient(MONGO_DB_URI)  # Update with your MongoDB URI
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -37,14 +44,16 @@ DEFAULT_FROM_EMAIL = 'mansipatel9898.mp@gmail.com'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@pv-&0ah@980tw1)2&ud-&z!@ed(r!ak6sjn)m%8($+*b4mil4'
+# # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = 
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
 
 CORS_ALLOWED_ORIGINS = [
+   
     'http://localhost:3000',  # React frontend URL
+     'http://pizza-tune-app-g3j9.vercel.app',
 ]
 
 
@@ -172,4 +181,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # settings.py
+
+MIDDLEWARE = ['corsheaders.middleware.CorsMiddleware'] + MIDDLEWARE
 
