@@ -13,7 +13,7 @@ export default function AdminContact() {
   useEffect(() => {
     const fetchCustomerInquiries = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/contact/get_inquiries/');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/contact/get_inquiries/`);
         if (response.data.success === false) {
           setMessage(response.data.message);
         } else {

@@ -9,7 +9,7 @@ export default function RowCol({ topSellingItems }) {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/menu/`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/menu/`);
         const allItems = response.data.items || []; // Ensure it defaults to an empty array
         
         // Filter items based on topSellingItems names

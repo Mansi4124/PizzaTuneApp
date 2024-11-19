@@ -29,7 +29,7 @@ const AddMenu = () => {
     formData.append('isVeg', isVeg);
 
     try {
-      const response = await axios.post('http://localhost:8000/menu/add/', formData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/menu/add/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

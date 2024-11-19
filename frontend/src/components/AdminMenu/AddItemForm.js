@@ -11,7 +11,7 @@ const AddItemForm = () => {
         e.preventDefault();
         const newItem = { name, description, price };
 
-        axios.post('http://localhost:8000/api/items/', newItem)
+        axios.post(`${process.env.REACT_APP_API_URL}/api/items/`, newItem)
             .then(response => {
                 alert('Item added successfully!');
                 setName('');

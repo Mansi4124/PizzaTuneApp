@@ -30,7 +30,7 @@ const Order = () => {
   // Fetch the user details including the email from the backend
   const fetchUserDetails = async (userId) => {
     try {
-      const response = await axios.post('http://localhost:8000/get_customer_data/', { user_id: userid });
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/get_customer_data/`, { user_id: userid });
       if (response.status === 200) {
         const user = response.data.user;
         if (user) {

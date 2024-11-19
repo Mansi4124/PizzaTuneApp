@@ -10,7 +10,7 @@ const MenuList = () => {
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/menu/');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/menu/`);
         setItems(response.data.items);
       } catch (err) {
         setError('Error fetching menu items');

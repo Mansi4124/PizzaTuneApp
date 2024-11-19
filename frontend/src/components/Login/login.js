@@ -22,7 +22,7 @@ function LoginForm() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8000/signin/", user);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/signin/`, user);
       const data = res.data;
 
       if (data.success) {

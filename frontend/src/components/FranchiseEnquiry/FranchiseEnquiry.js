@@ -25,7 +25,7 @@ export default function FranchiseEnquiry() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/contact/submit-frenchise-inquiry/", formData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/contact/submit-frenchise-inquiry/`, formData);
       const data = response.data;
       console.log(data)
     

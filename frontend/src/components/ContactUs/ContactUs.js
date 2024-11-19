@@ -22,7 +22,7 @@ export default function CustomerInquiry() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/contact/submit-inquiry/", formData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/contact/submit-inquiry/`, formData);
       const data = response.data;
 
       if (data.success) {
