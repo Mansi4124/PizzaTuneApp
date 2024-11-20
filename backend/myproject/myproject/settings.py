@@ -100,7 +100,8 @@ MIDDLEWARE = [
    
     
 ]
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['pizzatuneapp-3.onrender.com', '127.0.0.1', 'localhost']
+
 
 ROOT_URLCONF = 'myproject.urls'
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
