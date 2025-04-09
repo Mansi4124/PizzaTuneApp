@@ -13,6 +13,8 @@ import cloudinary
 from bson import ObjectId
 mongo_db_uri = os.getenv('MONGO_DB_URI')
 mongo_db_database=os.getenv('MONGO_DB_NAME')
+print(mongo_db_database)
+
 client = MongoClient(mongo_db_uri)
 db = client[mongo_db_database]
 menu_collection = db['menu_items']

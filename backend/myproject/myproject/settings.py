@@ -103,7 +103,9 @@ MIDDLEWARE = [
    
     
 ]
-ALLOWED_HOSTS = ['*'],
+ALLOWED_HOSTS = ['*']
+  # ✅ Correct list format
+
 
 
 ROOT_URLCONF = 'myproject.urls'
