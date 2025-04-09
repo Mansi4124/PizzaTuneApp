@@ -103,11 +103,11 @@ MIDDLEWARE = [
    
     
 ]
-ALLOWED_HOSTS = ['pizzatuneapp-3.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*'],
 
 
 ROOT_URLCONF = 'myproject.urls'
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000','https://pizzatuneapp-3.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000','https://pizzatuneapp-10.onrender.com','https://pizza-tune-app-ckq3-nrc7wgbd1-mansis-projects-6a18fec3.vercel.app/']
 
 TEMPLATES = [
     {
