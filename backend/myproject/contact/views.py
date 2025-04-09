@@ -1,4 +1,5 @@
 import datetime
+import os
 from bson import ObjectId
 from django.core.mail import send_mail
 from django.conf import settings
@@ -8,8 +9,10 @@ import json
 from pymongo import MongoClient
 
 # Initialize MongoDB client
-client = MongoClient('mongodb://localhost:27017/')
-db = client['myproject']
+mongo_db_uri = os.getenv('MONGO_DB_URI')
+mongo_db_database=os.getenv('MONGO_DB_NAME')
+client = MongoClient(mongo_db_uri)
+db = client[mongo_db_database]
 contact = db['query']
 fcontact = db['fquery']
 

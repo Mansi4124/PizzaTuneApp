@@ -27,12 +27,15 @@ MONGO_DB_URI = config("MONGO_DB_URI")
 # customer/mongodb_client.py
 
 from pymongo import MongoClient
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
 # MongoDB connection settings
 # settings.py
 from pymongo import MongoClient
 
-MONGO_CLIENT = MongoClient(MONGO_DB_URI)  # Update with your MongoDB URI
+# MONGO_CLIENT = MongoClient("mongodb://localhost:27017")  # Update with your MongoDB URI
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -104,7 +107,7 @@ ALLOWED_HOSTS = ['pizzatuneapp-3.onrender.com', '127.0.0.1', 'localhost']
 
 
 ROOT_URLCONF = 'myproject.urls'
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000','https://pizzatuneapp-3.onrender.com']
 
 TEMPLATES = [
     {

@@ -1,3 +1,4 @@
+import os
 from django.http import JsonResponse
 from rest_framework import viewsets
 from django.views.decorators.csrf import csrf_exempt
@@ -10,9 +11,10 @@ from django.core.mail import EmailMessage
 from django.http import JsonResponse
 from django.conf import settings
 
-client = MongoClient("mongodb://localhost:27017/")
-
-db = client.myproject
+mongo_db_uri = os.getenv('MONGO_DB_URI')
+mongo_db_database=os.getenv('MONGO_DB_NAME')
+client = MongoClient(mongo_db_uri)
+db = client[mongo_db_database]
 customer_collection = db.customers
 
 @csrf_exempt

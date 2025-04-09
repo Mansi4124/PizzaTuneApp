@@ -1,6 +1,9 @@
 # menu/views.py
 # menu/views.py
 
+
+
+import os
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from pymongo import MongoClient
@@ -8,8 +11,10 @@ import json
 import cloudinary.uploader
 import cloudinary
 from bson import ObjectId
-client = MongoClient('mongodb://localhost:27017/')
-db = client['myproject']
+mongo_db_uri = os.getenv('MONGO_DB_URI')
+mongo_db_database=os.getenv('MONGO_DB_NAME')
+client = MongoClient(mongo_db_uri)
+db = client[mongo_db_database]
 menu_collection = db['menu_items']
 
 @csrf_exempt
