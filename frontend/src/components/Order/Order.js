@@ -101,14 +101,14 @@ const Order = () => {
       const currentDate = new Date().toISOString();
 
       // Send bill email
-      const response1 = await axios.post('http://localhost:8000/send_bill/', {
+      const response1 = await axios.post(`${process.env.REACT_APP_API_URL}/send_bill/`, {
         email: email,
         cartItems: cartItems,
         totalAmount: totalAmount,
       });
 
       // Save order in database
-      const response = await axios.post('http://localhost:8000/order/save_order/', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/order/save_order/`, {
         name: `${fname} ${lname}`,  // Use the fname and lname from state
         email: email,               // Customer's email
         cartItems: cartItems,       // Cart items array

@@ -15,7 +15,7 @@ const AdminMenu = () => {
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/menu/');
+        const response = await axios.get('${process.env.REACT_APP_API_URL}/menu/');
         setMenuItems(response.data.items);
       } catch (error) {
         console.error('There was an error fetching the menu items!', error);
@@ -32,7 +32,7 @@ const AdminMenu = () => {
 
   const handleDelete = async (itemId) => {
     try {
-      await axios.delete(`http://localhost:8000/menu/${itemId}/delete/`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/menu/${itemId}/delete/`);
       setMenuItems(menuItems.filter(item => item._id !== itemId));
     } catch (error) {
       console.error('There was an error deleting the menu item!', error);
@@ -103,7 +103,7 @@ const EditMenuForm = ({ item, setEditMode, handleRefetch }) => {
     if (image) formData.append('image', image);
 
     try {
-      await axios.post(`http://localhost:8000/menu/${item._id}/update/`, formData, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/menu/${item._id}/update/`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setEditMode(false);

@@ -28,7 +28,7 @@ export default function AdminContact() {
   
     const fetchFranchiseInquiries = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/contact/get_frenchise_inquiries/');
+        const response = await axios.get('${process.env.REACT_APP_API_URL}/contact/get_frenchise_inquiries/');
         if (response.data.success === false) {
           setMessage(response.data.message);
         } else {
@@ -53,8 +53,8 @@ export default function AdminContact() {
   const handleReplySubmit = async (inquiryId, isFranchise) => {
     try {
       const url = isFranchise
-        ? 'http://localhost:8000/contact/reply_frenchise_inquiry/'
-        : 'http://localhost:8000/contact/reply_inquiry/';
+        ? `${process.env.REACT_APP_API_URL}/contact/reply_frenchise_inquiry/`
+        : `${process.env.REACT_APP_API_URL}/contact/reply_inquiry/`;
   
       const response = await axios.post(url, {
         inquiryId,
