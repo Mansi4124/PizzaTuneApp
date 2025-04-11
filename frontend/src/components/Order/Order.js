@@ -115,7 +115,8 @@ const Order = () => {
         totalAmount: totalAmount,   // Total amount of the order
         orderDate: currentDate      // Send the current date
       });
-
+      console.log(response);
+      
       if (response.status === 200 && response1.status === 200) {
         alert('Bill sent and order saved successfully!');
       } else {

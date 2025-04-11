@@ -1,12 +1,21 @@
 import json
+import os
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from pymongo import MongoClient
 from bson import ObjectId
 
 # Connect to your MongoDB database
-client = MongoClient('mongodb://localhost:27017/')
-db = client['myproject']  # Replace with your database name
+mongo_db_uri = os.getenv('MONGO_DB_URI')
+mongo_db_database=os.getenv('MONGO_DB_NAME')
+print(mongo_db_database)
+
+client = MongoClient(
+    mongo_db_uri,
+    serverSelectionTimeoutMS=5000,  # 5 seconds timeout
+    connectTimeoutMS=5000
+)
+db = client[mongo_db_database]
 orders_collection = db['orders']  # Collection for storing orders
 
 @csrf_exempt
