@@ -1,4 +1,4 @@
-# 🍕 Pizzatune - Full Stack Food Ordering App
+# 🍕 Pizzatune 
 
 Pizzatune is a full-stack web application built using **React** for the frontend and **Django** for the backend with **MongoDB** as the database. The app lets users browse a menu, add items to a cart, place orders, and allows admin management of menu items.
 
