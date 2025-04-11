@@ -28,7 +28,7 @@ export default function AdminContact() {
   
     const fetchFranchiseInquiries = async () => {
       try {
-        const response = await axios.get('${process.env.REACT_APP_API_URL}/contact/get_frenchise_inquiries/');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/contact/get_frenchise_inquiries/`);
         if (response.data.success === false) {
           setMessage(response.data.message);
         } else {
