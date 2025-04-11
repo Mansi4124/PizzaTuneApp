@@ -104,3 +104,6 @@ python manage.py runserver
 🤝 Contributing
 Contributions, issues, and feature requests are welcome!
 Open a PR or issue to get started.
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
