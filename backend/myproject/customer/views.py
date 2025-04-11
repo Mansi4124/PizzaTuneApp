@@ -13,7 +13,9 @@ from django.conf import settings
 
 mongo_db_uri = os.getenv('MONGO_DB_URI')
 mongo_db_database=os.getenv('MONGO_DB_NAME')
-client = MongoClient(mongo_db_uri)
+client = MongoClient(
+    mongo_db_uri,
+)
 db = client[mongo_db_database]
 customer_collection = db.customers
 

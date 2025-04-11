@@ -15,7 +15,11 @@ mongo_db_uri = os.getenv('MONGO_DB_URI')
 mongo_db_database=os.getenv('MONGO_DB_NAME')
 print(mongo_db_database)
 
-client = MongoClient(mongo_db_uri)
+client = MongoClient(
+    mongo_db_uri,
+    serverSelectionTimeoutMS=5000,  # 5 seconds timeout
+    connectTimeoutMS=5000
+)
 db = client[mongo_db_database]
 menu_collection = db['menu_items']
 
