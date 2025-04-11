@@ -56,8 +56,8 @@ DEFAULT_FROM_EMAIL = 'mansipatel9898.mp@gmail.com'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://pizza-tune-app-ckq3-nrc7wgbd1-mansis-projects-6a18fec3.vercel.app",
     "https://pizzatuneapp-10.onrender.com"
+    "https://pizza-tune-app-xaq4.vercel.app/"
 ]
 
 # Application definition
@@ -112,7 +112,7 @@ SECURE_SSL_REDIRECT = False
 
 
 ROOT_URLCONF = 'myproject.urls'
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000','https://pizzatuneapp-10.onrender.com','https://pizza-tune-app-ckq3-nrc7wgbd1-mansis-projects-6a18fec3.vercel.app/']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000','https://pizzatuneapp-10.onrender.com',"https://pizza-tune-app-xaq4.vercel.app/"]
 
 TEMPLATES = [
     {
