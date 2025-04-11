@@ -15,7 +15,7 @@ const AdminMenu = () => {
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const response = await axios.get('${process.env.REACT_APP_API_URL}/menu/');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/menu/`);
         setMenuItems(response.data.items);
       } catch (error) {
         console.error('There was an error fetching the menu items!', error);
